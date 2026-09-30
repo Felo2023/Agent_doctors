@@ -1,0 +1,66 @@
+# Specification for the future launcher; not native OpenCode configuration.
+schema_version: 1
+status: specification_only
+topology: process_per_doctor
+validation_execution: sequential
+core:
+  lead-doctor: {model: opus, activation: coordination}
+  records-abstractor-a: {model: opus, activation: intake}
+  records-abstractor-b: {model: astra, activation: intake}
+  records-reconciler: {model: sol, activation: intake}
+  history-interviewer: {model: opus, activation: history}
+  diagnostician-likely: {model: opus, activation: diagnosis}
+  diagnostician-unifying: {model: astra, activation: diagnosis}
+  diagnostician-multiple: {model: sol, activation: diagnosis}
+  internist: {model: astra, activation: diagnosis_and_treatment}
+  clinical-pharmacologist: {model: sol, activation: diagnosis_and_treatment}
+  test-strategist: {model: astra, activation: diagnosis_and_confirmation}
+  evidence-researcher: {model: sol, activation: scoped_retrieval}
+  contradiction-hunter: {model: astra, activation: review}
+  cognitive-bias-auditor: {model: sol, activation: review}
+  rare-disease-specialist: {model: opus, activation: relevant_differential_review}
+  safety-auditor: {model: sol, activation: all_phases}
+  treatment-specialist: {model: opus, activation: treatment}
+  prognosis-analyst: {model: astra, activation: prognosis}
+  treatment-safety-reviewer: {model: sol, activation: treatment_review}
+  report-translator: {model: opus, activation: report, equivalence_review_model: astra}
+specialists:
+  rheumatologist: {model: opus}
+  allergy-immunologist: {model: opus}
+  infectious-disease: {model: opus}
+  dermatologist: {model: opus}
+  obgyn: {model: opus}
+  psychiatrist: {model: opus}
+  clinical-geneticist: {model: opus}
+  oncologist-diagnostic: {model: opus}
+  pediatrician: {model: opus}
+  geriatrician: {model: opus}
+  neurologist: {model: astra}
+  cardiologist: {model: astra}
+  pulmonologist: {model: astra}
+  ophthalmologist: {model: astra}
+  ent: {model: astra}
+  sleep-medicine: {model: astra}
+  vascular-medicine: {model: astra}
+  radiologist: {model: astra, scope: report_review}
+  nephrologist: {model: sol}
+  urologist: {model: sol}
+  endocrinologist: {model: sol}
+  hematologist: {model: sol}
+  gastroenterologist: {model: sol}
+  hepatologist: {model: sol}
+  toxicologist: {model: sol}
+  metabolic-geneticist: {model: sol}
+  laboratory-medicine: {model: sol}
+  pathologist: {model: sol, scope: report_review}
+  hematologic-oncologist: {model: sol}
+  cancer-geneticist: {model: sol}
+treatment_pool:
+  medical-oncologist: {model: opus}
+  palliative-care: {model: opus}
+  surgical-oncologist: {model: astra}
+  general-surgeon: {model: astra}
+  interventional-radiologist: {model: astra}
+  radiation-oncologist: {model: sol}
+  transplant-specialist: {model: sol}
+  rehabilitation-medicine: {model: sol}

@@ -1,0 +1,38 @@
+# Specification for the future launcher; not native OpenCode configuration.
+# Opus/Astra passed synthetic prompts on 2026-09-28; Sol upgraded on 2026-09-30 UTC.
+schema_version: 1
+status: specification_only
+unresolved_model_policy: fail
+silent_fallback: false
+models:
+  opus:
+    provider: anthropic
+    requested_name: Claude Opus 5.5
+    provider_model_id: anthropic/claude-opus-5-5
+    verified_at: '2026-09-28T20:11:45Z'
+    settings: {}
+  astra:
+    provider: openai
+    requested_name: Astra
+    provider_model_id: openai/gpt-6-astra
+    verified_at: '2026-09-28T20:11:45Z'
+    settings: {}
+  sol:
+    provider: openai
+    requested_name: GPT-6.1 Sol
+    provider_model_id: openai/gpt-6.1-sol
+    verified_at: '2026-09-30T01:21:48Z'
+    settings: {}
+    # Observed from normal OpenCode /provider. Fresh isolated catalogs lagged
+    # behind, so explicitly register this verified ID in each role process.
+    opencode_definition:
+      id: gpt-6.1-sol
+      name: GPT-6.1 Sol
+      family: gpt-sol
+      release_date: '2026-09-29'
+      reasoning: true
+      temperature: false
+      tool_call: true
+      attachment: true
+      limit: {context: 1050000, input: 922000, output: 128000}
+      modalities: {input: [text, image, pdf], output: [text]}

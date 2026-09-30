@@ -1,0 +1,12 @@
+/Gabriela_Gutierrez/
+/case-store/
+/cases/private/
+/runbooks/private/
+/opencode_multi_agent_clinical_research_system_v2.md
+/validation/cases-private/
+**/transcripts/
+.env
+.DS_Store
+__pycache__/
+*.pyc
+/.venv/

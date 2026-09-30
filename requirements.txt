@@ -1,0 +1,2 @@
+-r requirements-intake.txt
+PyYAML>=6.0,<7
